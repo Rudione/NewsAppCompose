@@ -7,4 +7,5 @@ object Dimens {
     val MediumPadding2 = 28.dp
 
     val IndicatorSize = 16.dp
+    val PageIndicatorWidth = 52.dp
 }

@@ -15,7 +15,6 @@ fun NewsButton(
     text: String,
     onClick: () -> Unit
 ) {
-
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
@@ -26,8 +25,7 @@ fun NewsButton(
     ) {
         Text(
             text = text,
-            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold
-            )
+            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
         )
     }
 }
