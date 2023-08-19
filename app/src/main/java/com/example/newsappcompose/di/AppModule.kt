@@ -1,7 +1,6 @@
 package com.example.newsappcompose.di
 
-import android.content.Context
-import com.example.newsappcompose.NewsAppApplication
+import android.app.Application
 import com.example.newsappcompose.data.repository.LocalUserRepositoryImpl
 import com.example.newsappcompose.domain.repository.LocalUserRepository
 import com.example.newsappcompose.domain.usecases.AppEntryUseCases
@@ -20,10 +19,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideLocalUserRepository(
-        application: NewsAppApplication
-    ): LocalUserRepository {
-        return LocalUserRepositoryImpl(application)
-    }
+        application: Application
+    ): LocalUserRepository = LocalUserRepositoryImpl(application)
 
     @Provides
     @Singleton
