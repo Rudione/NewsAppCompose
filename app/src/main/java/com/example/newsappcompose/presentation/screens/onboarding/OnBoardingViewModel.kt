@@ -1,4 +1,4 @@
-package com.example.newsappcompose.presentation.onboarding
+package com.example.newsappcompose.presentation.screens.onboarding
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

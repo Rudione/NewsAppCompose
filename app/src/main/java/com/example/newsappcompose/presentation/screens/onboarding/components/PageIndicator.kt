@@ -1,4 +1,4 @@
-package com.example.newsappcompose.presentation.onboarding.components
+package com.example.newsappcompose.presentation.screens.onboarding.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
