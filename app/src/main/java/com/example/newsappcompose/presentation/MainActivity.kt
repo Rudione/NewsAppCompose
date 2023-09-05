@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.example.newsappcompose.presentation.navgraph.NavGraph
-import com.example.newsappcompose.ui.theme.NewsAppComposeTheme
+import com.example.newsappcompose.presentation.theme.NewsAppComposeTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 

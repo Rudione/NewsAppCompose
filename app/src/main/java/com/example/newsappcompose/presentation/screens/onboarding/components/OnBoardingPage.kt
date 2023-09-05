@@ -22,7 +22,7 @@ import com.example.newsappcompose.presentation.screens.onboarding.Page
 import com.example.newsappcompose.presentation.screens.onboarding.pages
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding2
-import com.example.newsappcompose.ui.theme.NewsAppComposeTheme
+import com.example.newsappcompose.presentation.theme.NewsAppComposeTheme
 
 @Composable
 fun OnBoardingPage(

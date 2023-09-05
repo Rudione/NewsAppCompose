@@ -47,7 +47,8 @@ fun ArticleCard(
             model = ImageRequest.Builder(context)
                 .data(article.urlToImage)
                 .build(),
-            contentDescription = null
+            contentDescription = null,
+            contentScale = androidx.compose.ui.layout.ContentScale.Crop,
         )
 
         Column(
