@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -33,71 +34,57 @@ import com.example.newsappcompose.presentation.utils.Dimens.ExtraSmallPadding
 fun ArticleCard(
     modifier: Modifier = Modifier,
     article: Article,
-    onClick: () -> Unit
+    onClick: (() -> Unit)? = null
 ) {
-    val context = LocalContext.current
 
+    val context = LocalContext.current
     Row(
-        modifier = modifier.clickable { onClick() }
-    ) {
+        modifier = modifier.clickable { onClick?.invoke() },
+
+        ) {
         AsyncImage(
             modifier = Modifier
-                .size(Dimens.ArticleCardSize)
+                .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
-            model = ImageRequest.Builder(context)
-                .data(article.urlToImage)
-                .build(),
+            model = ImageRequest.Builder(context).data(article.urlToImage).build(),
             contentDescription = null,
-            contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+            contentScale = ContentScale.Crop
         )
-
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             modifier = Modifier
-                .padding(horizontal = ExtraSmallPadding)
-                .height(
-                    ArticleCardSize
-                )
+                .padding(horizontal = Dimens.ExtraSmallPadding)
+                .height(ArticleCardSize)
         ) {
             Text(
                 text = article.title,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium.copy(),
                 color = colorResource(id = R.color.text_title),
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
             )
-
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Text(
                     text = article.source.name,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = colorResource(
-                        id = R.color.text_title
-                    ),
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                    color = colorResource(id = R.color.body)
                 )
-
                 Spacer(modifier = Modifier.width(ExtraSmallPadding))
-
                 Icon(
                     painter = painterResource(id = R.drawable.ic_time),
                     contentDescription = null,
                     modifier = Modifier.size(Dimens.SmallIconSize),
                     tint = colorResource(id = R.color.body)
                 )
-
                 Spacer(modifier = Modifier.width(ExtraSmallPadding))
-                
                 Text(
                     text = article.publishedAt,
-                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                    color = colorResource(
-                        id = R.color.body
-                    )
+                    style = MaterialTheme.typography.labelSmall,
+                    color = colorResource(id = R.color.body)
                 )
             }
         }
     }
-
 }

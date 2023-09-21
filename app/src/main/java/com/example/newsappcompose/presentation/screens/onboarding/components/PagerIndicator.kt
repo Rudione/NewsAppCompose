@@ -11,26 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
 import com.example.newsappcompose.presentation.utils.Dimens.IndicatorSize
 
 @Composable
-fun PageIndicator(
+fun PagerIndicator(
     modifier: Modifier = Modifier,
-    pageSize: Int,
+    pagesSize: Int,
     selectedPage: Int,
     selectedColor: Color = MaterialTheme.colorScheme.primary,
-    unselectedColor: Color = Blue
+    unselectedColor: Color = Color.Gray,
 ) {
     Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
-        repeat(pageSize) { page ->
+        repeat(times = pagesSize) { page ->
             Box(
                 modifier = Modifier
                     .size(IndicatorSize)
                     .clip(CircleShape)
-                    .background(
-                        color = if (page == selectedPage) selectedColor else unselectedColor
-                    )
+                    .background(color = if (page == selectedPage) selectedColor else unselectedColor)
             )
         }
     }

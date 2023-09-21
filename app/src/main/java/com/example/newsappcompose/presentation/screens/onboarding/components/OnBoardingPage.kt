@@ -1,6 +1,5 @@
 package com.example.newsappcompose.presentation.screens.onboarding.components
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,52 +15,47 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.newsappcompose.R
 import com.example.newsappcompose.presentation.screens.onboarding.Page
-import com.example.newsappcompose.presentation.screens.onboarding.pages
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding2
-import com.example.newsappcompose.presentation.theme.NewsAppComposeTheme
+
 
 @Composable
 fun OnBoardingPage(
     modifier: Modifier = Modifier,
-    page: Page
+    page: Page,
 ) {
-
     Column(modifier = modifier) {
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(fraction = 0.6f),
+                .fillMaxHeight(0.60f),
             painter = painterResource(id = page.image),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.height(MediumPadding1))
         Text(
+            modifier = Modifier.padding(horizontal = MediumPadding2),
             text = page.title,
-            modifier = modifier.padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
             color = colorResource(id = R.color.display_small)
         )
         Text(
+            modifier = Modifier.padding(horizontal = MediumPadding2),
             text = page.description,
-            modifier = modifier.padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.bodyMedium,
             color = colorResource(id = R.color.text_medium)
         )
     }
 }
 
-@Preview(showBackground = true)
-@Preview(uiMode = UI_MODE_NIGHT_YES, showBackground = true)
-@Composable
-fun OnBoardingPagePreview() {
-    NewsAppComposeTheme {
-        OnBoardingPage(
-            page = pages[0]
-        )
-    }
-}
+
+
+
+
+
+
+
+

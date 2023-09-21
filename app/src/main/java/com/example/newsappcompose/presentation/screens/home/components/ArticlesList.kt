@@ -82,7 +82,7 @@ fun ShimmerEffect() {
             ArticleCardShimmerEffect(
                 modifier = Modifier
                     .padding(horizontal = Dimens.MediumPadding1)
-                    .shimmerEffect()
+                    .shimmerEffect
             )
         }
     }

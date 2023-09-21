@@ -22,73 +22,69 @@ import androidx.compose.ui.unit.dp
 import com.example.newsappcompose.presentation.common.NewsButton
 import com.example.newsappcompose.presentation.common.NewsTextButton
 import com.example.newsappcompose.presentation.screens.onboarding.components.OnBoardingPage
-import com.example.newsappcompose.presentation.screens.onboarding.components.PageIndicator
+import com.example.newsappcompose.presentation.screens.onboarding.components.PagerIndicator
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding2
-import com.example.newsappcompose.presentation.utils.Dimens.PageIndicatorWidth
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnBoardingScreen(
-    event: (OnBoardingEvent) -> Unit
+    onEvent: (OnBoardingEvent) -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
+    Column(modifier = Modifier.fillMaxSize()) {
         val pagerState = rememberPagerState(initialPage = 0) {
             pages.size
         }
-
-        val buttonState = remember {
+        val buttonsState = remember {
             derivedStateOf {
                 when (pagerState.currentPage) {
                     0 -> listOf("", "Next")
                     1 -> listOf("Back", "Next")
                     2 -> listOf("Back", "Get Started")
-                    else -> throw IllegalStateException("Invalid page")
+                    else -> listOf("", "")
                 }
             }
         }
-
         HorizontalPager(state = pagerState) { index ->
-            OnBoardingPage(
-                page = pages[index]
-            )
+            OnBoardingPage(page = pages[index])
         }
-        Spacer(modifier = Modifier.padding(top = 16.dp))
+        Spacer(modifier = Modifier.weight(1f))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = MediumPadding2)
                 .navigationBarsPadding(),
-            horizontalArrangement = Arrangement.SpaceAround,
+            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            PageIndicator(
-                modifier = Modifier.width(PageIndicatorWidth),
-                pageSize = pages.size, selectedPage = pagerState.currentPage
+            PagerIndicator(
+                modifier = Modifier.width(52.dp),
+                pagesSize = pages.size,
+                selectedPage = pagerState.currentPage
             )
-            Row(verticalAlignment = Alignment.CenterVertically) {
 
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 val scope = rememberCoroutineScope()
-                if (buttonState.value[0].isNotEmpty()) {
+                //Hide the button when the first element of the list is empty
+                if (buttonsState.value[0].isNotEmpty()) {
                     NewsTextButton(
-                        text = buttonState.value[0],
+                        text = buttonsState.value[0],
                         onClick = {
                             scope.launch {
-                                pagerState.animateScrollToPage(pagerState.currentPage - 1)
+                                pagerState.animateScrollToPage(
+                                    page = pagerState.currentPage - 1
+                                )
                             }
+
                         }
                     )
                 }
-
                 NewsButton(
-                    text = buttonState.value[1],
+                    text = buttonsState.value[1],
                     onClick = {
                         scope.launch {
                             if (pagerState.currentPage == 2) {
-                                event(OnBoardingEvent.SaveAppEntry)
+                                onEvent(OnBoardingEvent.SaveAppEntry)
                             } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1
@@ -98,7 +94,7 @@ fun OnBoardingScreen(
                     }
                 )
             }
-            Spacer(modifier = Modifier.weight(0.5f))
         }
+        Spacer(modifier = Modifier.weight(0.5f))
     }
 }
