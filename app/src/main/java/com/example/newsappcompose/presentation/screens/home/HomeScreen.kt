@@ -38,7 +38,7 @@ fun HomeScreen(
 ) {
     val titles by remember {
         derivedStateOf {
-            if (articles.itemCount > 0) {
+            if (articles.itemCount > 10) {
                 articles.itemSnapshotList.items
                     .slice(IntRange(start = 0, endInclusive = 9))
                     .joinToString(separator = " \uD83d\uDFE5") { it.title }
