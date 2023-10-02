@@ -14,9 +14,12 @@ import com.example.newsappcompose.domain.repository.NewsTypeConvertor
 import com.example.newsappcompose.domain.usecases.app_entry.AppEntryUseCases
 import com.example.newsappcompose.domain.usecases.app_entry.ReadAppEntryUseCase
 import com.example.newsappcompose.domain.usecases.app_entry.SaveAppEntryUseCase
+import com.example.newsappcompose.domain.usecases.news.DeleteUseCase
 import com.example.newsappcompose.domain.usecases.news.GetNewsUseCase
 import com.example.newsappcompose.domain.usecases.news.NewsUseCases
 import com.example.newsappcompose.domain.usecases.news.SearchNewsUseCase
+import com.example.newsappcompose.domain.usecases.news.SelectUseCase
+import com.example.newsappcompose.domain.usecases.news.UpsertUseCase
 import com.example.newsappcompose.domain.utils.Constants.BASE_URL
 import com.example.newsappcompose.domain.utils.Constants.NEWS_DATABASE_NAME
 import dagger.Module
@@ -65,14 +68,17 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(
-        newsRepository: NewsRepository
+        newsRepository: NewsRepository,
+        newsDao: NewsDao
     ): NewsUseCases {
         return NewsUseCases(
             getNewsUseCase = GetNewsUseCase(newsRepository),
-            searchNewsUseCase = SearchNewsUseCase(newsRepository)
+            searchNewsUseCase = SearchNewsUseCase(newsRepository),
+            upsertUseCase = UpsertUseCase(newsDao),
+            deleteUseCase = DeleteUseCase(newsDao),
+            selectUseCase = SelectUseCase(newsDao)
         )
     }
-
 
     @Provides
     @Singleton
