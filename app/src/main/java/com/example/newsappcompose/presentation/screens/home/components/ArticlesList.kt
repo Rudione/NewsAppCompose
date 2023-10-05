@@ -35,9 +35,9 @@ fun ArticlesList(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             items(articles.itemCount) {index ->
-                articles[index].let {
+                articles[index]?.let {
                     ArticleCard(
-                        article = it!!,
+                        article = it,
                         onClick = { onItemClick(it) }
                     )
                 }

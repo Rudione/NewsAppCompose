@@ -10,16 +10,16 @@ import com.example.newsappcompose.data.repository.LocalUserRepositoryImpl
 import com.example.newsappcompose.data.repository.NewsRepositoryImpl
 import com.example.newsappcompose.domain.repository.LocalUserRepository
 import com.example.newsappcompose.domain.repository.NewsRepository
-import com.example.newsappcompose.domain.repository.NewsTypeConvertor
 import com.example.newsappcompose.domain.usecases.app_entry.AppEntryUseCases
 import com.example.newsappcompose.domain.usecases.app_entry.ReadAppEntryUseCase
 import com.example.newsappcompose.domain.usecases.app_entry.SaveAppEntryUseCase
-import com.example.newsappcompose.domain.usecases.news.DeleteUseCase
+import com.example.newsappcompose.domain.usecases.news.DeleteArticleUseCase
 import com.example.newsappcompose.domain.usecases.news.GetNewsUseCase
 import com.example.newsappcompose.domain.usecases.news.NewsUseCases
 import com.example.newsappcompose.domain.usecases.news.SearchNewsUseCase
-import com.example.newsappcompose.domain.usecases.news.SelectUseCase
-import com.example.newsappcompose.domain.usecases.news.UpsertUseCase
+import com.example.newsappcompose.domain.usecases.news.SelectArticleUseCase
+import com.example.newsappcompose.domain.usecases.news.SelectArticlesUseCase
+import com.example.newsappcompose.domain.usecases.news.UpsertArticleUseCase
 import com.example.newsappcompose.domain.utils.Constants.BASE_URL
 import com.example.newsappcompose.domain.utils.Constants.NEWS_DATABASE_NAME
 import dagger.Module
@@ -62,8 +62,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsRepository(
-        newsApi: NewsApi
-    ): NewsRepository = NewsRepositoryImpl(newsApi)
+        newsApi: NewsApi,
+        newsDao: NewsDao
+    ): NewsRepository = NewsRepositoryImpl(newsApi, newsDao)
 
     @Provides
     @Singleton
@@ -74,9 +75,10 @@ object AppModule {
         return NewsUseCases(
             getNewsUseCase = GetNewsUseCase(newsRepository),
             searchNewsUseCase = SearchNewsUseCase(newsRepository),
-            upsertUseCase = UpsertUseCase(newsDao),
-            deleteUseCase = DeleteUseCase(newsDao),
-            selectUseCase = SelectUseCase(newsDao)
+            upsertUseCase = UpsertArticleUseCase(newsRepository),
+            deleteUseCase = DeleteArticleUseCase(newsRepository),
+            selectUseCase = SelectArticlesUseCase(newsRepository),
+            selectArticleUseCase = SelectArticleUseCase(newsRepository)
         )
     }
 
