@@ -44,7 +44,7 @@ object AppModule {
     @Singleton
     fun provideAppEntryUseCase(
         localUserRepository: LocalUserRepository
-    ) = AppEntryUseCases(
+    ): AppEntryUseCases = AppEntryUseCases(
         readAppEntryUseCase = ReadAppEntryUseCase(localUserRepository),
         saveAppEntryUseCase = SaveAppEntryUseCase(localUserRepository)
     )
@@ -69,8 +69,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsUseCases(
-        newsRepository: NewsRepository,
-        newsDao: NewsDao
+        newsRepository: NewsRepository
     ): NewsUseCases {
         return NewsUseCases(
             getNewsUseCase = GetNewsUseCase(newsRepository),

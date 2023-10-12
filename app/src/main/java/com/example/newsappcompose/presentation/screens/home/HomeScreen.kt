@@ -22,6 +22,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.compose.LazyPagingItems
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.newsappcompose.R
 import com.example.newsappcompose.domain.model.Article
 import com.example.newsappcompose.presentation.common.SearchBar
@@ -55,13 +59,15 @@ fun HomeScreen(
             .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_logo),
-            contentDescription = null,
+        val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.logoanim))
+
+        LottieAnimation(
             modifier = Modifier
-                .width(150.dp)
-                .height(50.dp)
-                .padding(start = MediumPadding1)
+                .width(120.dp)
+                .height(70.dp)
+                .padding(horizontal = MediumPadding1),
+            composition = composition,
+            iterations = LottieConstants.IterateForever,
         )
 
         Spacer(modifier = Modifier.height(MediumPadding1))

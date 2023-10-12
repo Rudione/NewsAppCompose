@@ -109,4 +109,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.5.2")
     kapt("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
+
+    // Lottie
+    implementation("com.airbnb.android:lottie-compose:6.0.1")
 }

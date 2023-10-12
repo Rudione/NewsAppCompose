@@ -9,20 +9,21 @@ class NewsPagingSource(
     private val newsApi: NewsApi,
     private val sources: String
 ): PagingSource<Int, Article>() {
+
     private var totalNewsCount = 0
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val page = params.key ?: 1
 
         return try {
-            val response = newsApi.getNews(sources, page)
+            val response = newsApi.getNews(sources = sources, page = page)
             totalNewsCount += response.articles.size
             val articles = response.articles.distinctBy { it.title }
 
             LoadResult.Page(
                 data = articles,
-                nextKey = if (articles.isEmpty()) null else page + 1,
-                prevKey = if (page == totalNewsCount) null else page - 1
+                nextKey = if (totalNewsCount == response.totalResults) null else page + 1,
+                prevKey = null
             )
         } catch (e: Exception) {
             e.printStackTrace()
