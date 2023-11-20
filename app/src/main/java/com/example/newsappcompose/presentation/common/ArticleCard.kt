@@ -40,7 +40,6 @@ fun ArticleCard(
     val context = LocalContext.current
     Row(
         modifier = modifier.clickable { onClick?.invoke() },
-
         ) {
         AsyncImage(
             modifier = Modifier

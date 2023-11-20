@@ -1,4 +1,4 @@
-package com.example.newsappcompose.presentation.news_navigator
+package com.example.newsappcompose.presentation.navigator
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,8 +23,8 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsappcompose.R
 import com.example.newsappcompose.domain.model.Article
 import com.example.newsappcompose.presentation.navgraph.Route
-import com.example.newsappcompose.presentation.news_navigator.components.BottomNavigationItem
-import com.example.newsappcompose.presentation.news_navigator.components.NewsBottomNavigation
+import com.example.newsappcompose.presentation.navigator.components.BottomNavigationItem
+import com.example.newsappcompose.presentation.navigator.components.NewsBottomNavigation
 import com.example.newsappcompose.presentation.screens.bookmark.BookmarkScreen
 import com.example.newsappcompose.presentation.screens.bookmark.BookmarkViewModel
 import com.example.newsappcompose.presentation.screens.details.DetailsEvent

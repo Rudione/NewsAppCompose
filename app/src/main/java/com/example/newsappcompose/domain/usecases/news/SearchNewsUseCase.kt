@@ -10,6 +10,6 @@ class SearchNewsUseCase(
 ) {
 
     operator fun invoke(searchQuery: String, sources: List<String>): Flow<PagingData<Article>> {
-        return newsRepository.searchNews(searchQuery, sources = sources)
+        return newsRepository.searchNews(searchQuery = searchQuery, sources = sources)
     }
 }

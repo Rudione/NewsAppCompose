@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.compose.LazyPagingItems
@@ -32,6 +34,7 @@ import com.example.newsappcompose.presentation.common.SearchBar
 import com.example.newsappcompose.presentation.navgraph.Route
 import com.example.newsappcompose.presentation.screens.home.components.ArticlesList
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
+import com.example.newsappcompose.presentation.utils.Dimens.SmallPadding
 import java.io.File.separator
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -61,28 +64,32 @@ fun HomeScreen(
     ) {
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.logoanim))
 
-        LottieAnimation(
-            modifier = Modifier
-                .width(120.dp)
-                .height(70.dp)
-                .padding(horizontal = MediumPadding1),
-            composition = composition,
-            iterations = LottieConstants.IterateForever,
-        )
+        Row() {
 
-        Spacer(modifier = Modifier.height(MediumPadding1))
+            LottieAnimation(
+                modifier = Modifier
+                    .width(120.dp)
+                    .height(60.dp)
+                    .padding(horizontal = MediumPadding1),
+                composition = composition,
+                iterations = LottieConstants.IterateForever,
+            )
 
-        SearchBar(
-            modifier = Modifier
-                .padding(horizontal = MediumPadding1),
-            text = "",
-            readOnly = true,
-            onValueChange = {},
-            onClick = {
-                navigateToSearch()
-            },
-            onSearch = {}
-        )
+            Spacer(modifier = Modifier.height(SmallPadding))
+
+            SearchBar(
+                modifier = Modifier
+                    .padding(horizontal = MediumPadding1),
+                text = "",
+                readOnly = true,
+                onValueChange = {},
+                onClick = {
+                    navigateToSearch()
+                },
+                onSearch = {}
+            )
+
+        }
 
         Spacer(modifier = Modifier.height(MediumPadding1))
 

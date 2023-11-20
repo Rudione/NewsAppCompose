@@ -1,4 +1,4 @@
-package com.example.newsappcompose.presentation.news_navigator.components
+package com.example.newsappcompose.presentation.navigator.components
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Column

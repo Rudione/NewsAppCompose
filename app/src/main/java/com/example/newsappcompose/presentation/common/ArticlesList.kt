@@ -43,7 +43,6 @@ fun ArticlesList(
 
     val handlePagingResult = handlePagingResult(articles = articles)
 
-
     if (handlePagingResult) {
         LazyColumn(
             modifier = modifier.fillMaxSize(),

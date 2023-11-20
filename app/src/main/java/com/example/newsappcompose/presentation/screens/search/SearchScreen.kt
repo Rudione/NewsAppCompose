@@ -1,5 +1,6 @@
 package com.example.newsappcompose.presentation.screens.search
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -19,7 +21,7 @@ import com.example.newsappcompose.presentation.navgraph.Route
 fun SearchScreen(
     state: SearchState,
     event: (SearchEvent) -> Unit,
-    navigateToDetails: (Article) -> Unit
+    navigateToDetails: (Article) -> Unit,
 ) {
 
     Column(
@@ -43,15 +45,17 @@ fun SearchScreen(
             }
         )
         Spacer(modifier = Modifier.height(16.dp))
-
+        
         state.articles?.let {
             val articles = it.collectAsLazyPagingItems()
             ArticlesList(
                 articles = articles,
-                onClick = {
-                    navigateToDetails(it)
+                onClick = { article ->
+                    navigateToDetails(article)
                 }
             )
+            Log.d("Search1", "SearchScreen: ${articles.itemCount}")
+            Log.d("Search2", "SearchScreen: ${articles.itemSnapshotList}")
         }
     }
 }
