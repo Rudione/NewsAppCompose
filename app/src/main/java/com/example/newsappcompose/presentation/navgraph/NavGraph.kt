@@ -10,6 +10,12 @@ import com.example.newsappcompose.presentation.navigator.NewsNavigator
 import com.example.newsappcompose.presentation.screens.onboarding.OnBoardingScreen
 import com.example.newsappcompose.presentation.screens.onboarding.OnBoardingViewModel
 
+/**
+ * @property [NavGraph] composable for showing nav graph.
+ *
+ * @param startDestination
+ */
+
 @Composable
 fun NavGraph(
     startDestination: String

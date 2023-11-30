@@ -37,6 +37,13 @@ import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
 import com.example.newsappcompose.presentation.utils.Dimens.SmallPadding
 import java.io.File.separator
 
+/**
+ * @property [HomeScreen] composable for showing home screen.
+ *
+ * @param articles
+ * @param navigateToSearch
+ * @param navigateToDetails
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(

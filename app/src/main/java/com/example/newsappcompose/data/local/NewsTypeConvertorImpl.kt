@@ -5,6 +5,9 @@ import androidx.room.TypeConverter
 import com.example.newsappcompose.domain.model.Source
 import com.example.newsappcompose.domain.repository.NewsTypeConvertor
 
+/**
+ * @property [NewsTypeConvertorImpl] class for converting [Source] to [String] and vice versa.
+ */
 @ProvidedTypeConverter
 class NewsTypeConvertorImpl: NewsTypeConvertor {
 

@@ -17,6 +17,12 @@ import com.example.newsappcompose.presentation.common.ArticlesList
 import com.example.newsappcompose.presentation.common.SearchBar
 import com.example.newsappcompose.presentation.navgraph.Route
 
+/**
+ * @property [SearchScreen] composable for showing search screen.
+ * @param state
+ * @param event
+ * @param navigateToDetails
+ */
 @Composable
 fun SearchScreen(
     state: SearchState,

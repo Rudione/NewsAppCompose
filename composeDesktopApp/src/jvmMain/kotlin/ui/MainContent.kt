@@ -26,6 +26,12 @@ import utils.loadPicture
 import utils.openURL
 import java.net.URI
 
+/**
+ * @property [MainContent] composable for showing main content.
+ *
+ * @param headerTitle
+ * @param articles
+ */
 @Composable
 fun MainContent(headerTitle: String, articles: List<Article>) {
 

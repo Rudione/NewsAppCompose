@@ -7,6 +7,9 @@ import data.model.Article
 import io.ktor.client.plugins.*
 import kotlinx.coroutines.launch
 
+/**
+ * @property [MainScreen] class for main screen.
+ */
 @Composable
 fun MainScreen() {
     var articles by remember { mutableStateOf(emptyList<Article>()) }

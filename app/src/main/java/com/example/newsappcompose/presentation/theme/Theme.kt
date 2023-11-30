@@ -15,6 +15,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
+/**
+ * @property [NewsAppComposeTheme] composable for showing theme.
+ *
+ * @param darkTheme
+ * @param dynamicColor
+ * @param content
+ */
+
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,

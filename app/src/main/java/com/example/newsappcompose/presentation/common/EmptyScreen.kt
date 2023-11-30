@@ -28,6 +28,11 @@ import com.example.newsappcompose.R
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
+/**
+ * @property [EmptyScreen] composable for showing empty screen.
+ *
+ * @param error
+ */
 @Composable
 fun EmptyScreen(error: LoadState.Error? = null) {
 
@@ -65,6 +70,13 @@ fun EmptyScreen(error: LoadState.Error? = null) {
 
 }
 
+/**
+ * @property [EmptyContent] composable for showing empty content.
+ *
+ * @param alphaAnim
+ * @param message
+ * @param iconId
+ */
 @Composable
 fun EmptyContent(alphaAnim: Float, message: String, iconId: Int) {
     Column(
@@ -91,6 +103,11 @@ fun EmptyContent(alphaAnim: Float, message: String, iconId: Int) {
     }
 }
 
+/**
+ * @property [parseErrorMessage] function for parsing error message.
+ *
+ * @param error
+ */
 fun parseErrorMessage(error: LoadState.Error?): String {
     return when (error?.error) {
         is SocketTimeoutException -> "Server Unavailable"

@@ -14,6 +14,13 @@ import com.example.newsappcompose.domain.model.Article
 import com.example.newsappcompose.presentation.utils.Dimens.ExtraSmallPadding
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
 
+/**
+ * @property [ArticlesList] composable for showing articles list.
+ *
+ * @param modifier
+ * @param articles
+ * @param onClick
+ */
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
@@ -34,6 +41,13 @@ fun ArticlesList(
     }
 }
 
+/**
+ * @property [ArticlesList] composable for showing articles list.
+ *
+ * @param modifier
+ * @param articles
+ * @param onClick
+ */
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
@@ -60,6 +74,11 @@ fun ArticlesList(
     }
 }
 
+/**
+ * @property [handlePagingResult] composable for handling paging result.
+ *
+ * @param articles
+ */
 @Composable
 fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
     val loadState = articles.loadState
@@ -87,6 +106,9 @@ fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
     }
 }
 
+/**
+ * @property [ShimmerEffect] composable for showing shimmer effect.
+ */
 @Composable
 fun ShimmerEffect() {
     Column(verticalArrangement = Arrangement.spacedBy(MediumPadding1)) {

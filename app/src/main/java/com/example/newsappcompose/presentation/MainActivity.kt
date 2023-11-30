@@ -22,6 +22,11 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+/**
+ * @property [MainActivity] is the main activity of the app.
+ * is the view model of the app.
+ * @param newsDao
+ */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 

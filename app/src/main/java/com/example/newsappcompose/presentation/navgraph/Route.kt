@@ -1,5 +1,11 @@
 package com.example.newsappcompose.presentation.navgraph
 
+
+/**
+ * @property [Route] class for route. It is sealed class. It is used for navigation.
+ * It is used in [NavGraph].
+ * @property route
+ */
 sealed class Route(
     val route: String
 ) {

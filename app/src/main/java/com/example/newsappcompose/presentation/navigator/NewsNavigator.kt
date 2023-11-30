@@ -35,6 +35,10 @@ import com.example.newsappcompose.presentation.screens.home.HomeViewModel
 import com.example.newsappcompose.presentation.screens.search.SearchScreen
 import com.example.newsappcompose.presentation.screens.search.SearchViewModel
 
+/**
+ * @property [NewsNavigator] composable for showing news navigator.
+ *
+ */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -162,6 +166,12 @@ fun NewsNavigator() {
     }
 }
 
+/**
+ * @property [navigateToTab] composable for navigating to tab.
+ *
+ * @param navController
+ * @param route
+ */
 private fun navigateToTab(navController: NavController, route: String) {
     navController.navigate(route) {
         navController.graph.startDestinationRoute?.let { screen_route ->
@@ -174,6 +184,12 @@ private fun navigateToTab(navController: NavController, route: String) {
     }
 }
 
+/**
+ * @property [navigateToDetails] composable for navigating to details.
+ * This function is used for navigating to details screen.
+ * @param navController
+ * @param article
+ */
 private fun navigateToDetails(navController: NavController, article: Article) {
     navController.currentBackStackEntry?.savedStateHandle?.set("article", article)
     navController.navigate(

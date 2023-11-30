@@ -8,6 +8,11 @@ import com.example.newsappcompose.domain.usecases.news.NewsUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+/**
+ * @property [HomeViewModel] class for home view model.
+ * This class is responsible for handling the home view model.
+ * @param newsUseCases
+ */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val newsUseCases: NewsUseCases

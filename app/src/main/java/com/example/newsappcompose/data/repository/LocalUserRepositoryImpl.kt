@@ -12,6 +12,9 @@ import com.example.newsappcompose.domain.utils.Constants.USER_SETTINGS
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+/**
+ * @property [LocalUserRepositoryImpl] class for saving and reading app entry.
+ */
 class LocalUserRepositoryImpl(
     private val context: Context
 ): LocalUserRepository {

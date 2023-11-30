@@ -1,5 +1,9 @@
 package com.example.newsappcompose.domain.utils
 
+/**
+ * @property [Constants] class for constants.
+ * we can use this class for storing constants.
+ */
 object Constants {
     const val USER_SETTINGS = "user_settings"
 

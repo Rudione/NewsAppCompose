@@ -8,6 +8,9 @@ import androidx.room.Query
 import com.example.newsappcompose.domain.model.Article
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * @property Interface for database access for [Article] related operations.
+ */
 @Dao
 interface NewsDao {
 

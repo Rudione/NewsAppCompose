@@ -13,6 +13,11 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+/**
+ * @property [MainViewModel] is the view model of the app.
+ * This class is responsible for handling the app entry.
+ * @param appEntryUseCases
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val appEntryUseCases: AppEntryUseCases

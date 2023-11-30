@@ -30,16 +30,27 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * @property [AppModule] class for providing dependencies.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    /**
+     * @param application
+     * @return
+     */
     @Provides
     @Singleton
     fun provideLocalUserRepository(
         application: Application
     ): LocalUserRepository = LocalUserRepositoryImpl(application)
 
+    /**
+     * @param localUserRepository
+     * @return [AppEntryUseCases]
+     */
     @Provides
     @Singleton
     fun provideAppEntryUseCase(
@@ -49,6 +60,9 @@ object AppModule {
         saveAppEntryUseCase = SaveAppEntryUseCase(localUserRepository)
     )
 
+    /**
+     * @return [NewsApi] instance.
+     */
     @Provides
     @Singleton
     fun provideNewsApi(): NewsApi {
@@ -59,6 +73,11 @@ object AppModule {
             .create(NewsApi::class.java)
     }
 
+    /**
+     * @param newsApi
+     * @param newsDao
+     * @return [NewsRepositoryImpl]
+     */
     @Provides
     @Singleton
     fun provideNewsRepository(
@@ -66,6 +85,10 @@ object AppModule {
         newsDao: NewsDao
     ): NewsRepository = NewsRepositoryImpl(newsApi, newsDao)
 
+    /**
+     * @param newsRepository
+     * @return [NewsUseCases]
+     */
     @Provides
     @Singleton
     fun provideNewsUseCases(
@@ -81,6 +104,10 @@ object AppModule {
         )
     }
 
+    /**
+     * @param application
+     * @return [NewsDatabase]
+     */
     @Provides
     @Singleton
     fun provideNewsDatabase(
@@ -95,6 +122,10 @@ object AppModule {
             .build()
     }
 
+    /**
+     * @param newsDatabase
+     * @return [NewsDao]
+     */
     @Provides
     @Singleton
     fun provideNewsDao(

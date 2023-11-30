@@ -16,6 +16,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.newsappcompose.R
 
+/**
+ * @property [DetailsTopBar] composable for showing details top bar.
+ *
+ * @param onBrowsingClick
+ * @param onShareClick
+ * @param onBookmarkClick
+ * @param onBackClick
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsTopBar(

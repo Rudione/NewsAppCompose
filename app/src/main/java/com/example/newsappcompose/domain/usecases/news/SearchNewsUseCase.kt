@@ -5,6 +5,9 @@ import com.example.newsappcompose.domain.model.Article
 import com.example.newsappcompose.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * @property [SearchNewsUseCase] class for searching news.
+ */
 class SearchNewsUseCase(
     private val newsRepository: NewsRepository
 ) {

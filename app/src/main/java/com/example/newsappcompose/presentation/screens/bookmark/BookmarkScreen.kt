@@ -18,6 +18,12 @@ import com.example.newsappcompose.presentation.common.ArticlesList
 import com.example.newsappcompose.presentation.navgraph.Route
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
 
+/**
+ * @property [BookmarkScreen] composable for showing bookmark screen.
+ *
+ * @param state
+ * @param navigateToDetails
+ */
 @Composable
 fun BookmarkScreen(
     state: BookmarkState,

@@ -10,6 +10,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
+/**
+ * @property [NewsButton] composable for showing news button.
+ *
+ * @param text
+ * @param onClick
+ */
+
 @Composable
 fun NewsButton(
     text: String,

@@ -26,6 +26,11 @@ import com.example.newsappcompose.presentation.screens.onboarding.components.Pag
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding2
 import kotlinx.coroutines.launch
 
+/**
+ * @property [OnBoardingScreen] composable for showing on boarding screen.
+ * This composable will show on boarding screen with three pages.
+ * @param onEvent
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnBoardingScreen(

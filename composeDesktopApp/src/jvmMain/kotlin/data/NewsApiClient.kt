@@ -9,6 +9,11 @@ import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
 import utils.Constants
 
+/**
+ * @property [NewsApiClient] class for news api client.
+ * This class is responsible for fetching news from the api.
+
+ */
 object NewsApiClient {
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {

@@ -2,16 +2,12 @@ package com.example.newsappcompose.presentation.screens.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.example.newsappcompose.domain.model.Article
@@ -20,6 +16,12 @@ import com.example.newsappcompose.presentation.common.EmptyScreen
 import com.example.newsappcompose.presentation.common.shimmerEffect
 import com.example.newsappcompose.presentation.utils.Dimens
 
+/**
+ * @property [ArticlesList] composable for showing articles list.
+ * @param modifier
+ * @param articles
+ * @param onItemClick
+ */
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
@@ -46,6 +48,12 @@ fun ArticlesList(
     }
 }
 
+/**
+ * @property [HandlePagingResult] composable for handling paging result.
+ * This composable will show shimmer effect if data is loading or show error screen if error occurred.
+ * @param articles
+ * @param onItemClick
+ */
 @Composable
 fun HandlePagingResult(
     articles: LazyPagingItems<Article>,
@@ -75,6 +83,10 @@ fun HandlePagingResult(
     }
 }
 
+/**
+ * @property [ShimmerEffect] composable for showing shimmer effect.
+ * This composable will show shimmer effect if data is loading.
+ */
 @Composable
 fun ShimmerEffect() {
     Column(verticalArrangement = Arrangement.spacedBy(Dimens.MediumPadding1)) {

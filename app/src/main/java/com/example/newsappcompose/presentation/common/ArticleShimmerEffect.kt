@@ -26,6 +26,11 @@ import com.example.newsappcompose.R
 import com.example.newsappcompose.presentation.utils.Dimens
 import com.example.newsappcompose.presentation.utils.Dimens.MediumPadding1
 
+/**
+ * @property [ArticleCardShimmerEffect] composable for showing shimmer effect.
+ *
+ * @param modifier
+ */
 val Modifier.shimmerEffect
     get() = composed {
         val transition = rememberInfiniteTransition(label = "")
@@ -38,6 +43,11 @@ val Modifier.shimmerEffect
         background(color = colorResource(id = R.color.shimmer).copy(alpha = alpha))
     }
 
+/**
+ * @property [ArticleCardShimmerEffect] composable for showing shimmer effect.
+ *
+ * @param modifier
+ */
 @Composable
 fun ArticleCardShimmerEffect(modifier: Modifier = Modifier) {
     Row(

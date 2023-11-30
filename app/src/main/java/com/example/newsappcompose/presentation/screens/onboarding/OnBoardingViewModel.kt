@@ -7,6 +7,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * @property [OnBoardingViewModel] class for on boarding view model.
+ * This class is responsible for handling the on boarding view model.
+ * @param appEntryUseCases
+ */
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
     private val appEntryUseCases: AppEntryUseCases

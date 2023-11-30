@@ -9,6 +9,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * @property [DetailsViewModel] class for details view model.
+ * This class is responsible for handling the details view model.
+ * @param newsUseCases
+ */
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
     private val newsUseCases: NewsUseCases

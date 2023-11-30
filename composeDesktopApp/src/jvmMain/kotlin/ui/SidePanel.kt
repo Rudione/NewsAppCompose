@@ -18,6 +18,12 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.text.font.FontWeight
 import utils.handCursor
 
+/**
+ * @property [SidePanel] composable for showing side panel.
+ *
+ * @param onMenuSelected
+ * @param onNewsSearched
+ */
 @Composable
 fun SidePanel(
     onMenuSelected: (header: String) -> Unit,

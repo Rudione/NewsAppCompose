@@ -10,6 +10,11 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+/**
+ * @property [BookmarkViewModel] class for bookmark view model.
+ * This class is responsible for handling the bookmark view model.
+ * @param newsUseCases
+ */
 @HiltViewModel
 class BookmarkViewModel @Inject constructor(
     private val newsUseCases: NewsUseCases

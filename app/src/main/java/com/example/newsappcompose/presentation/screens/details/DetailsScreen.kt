@@ -25,6 +25,13 @@ import com.example.newsappcompose.R
 import com.example.newsappcompose.domain.model.Article
 import com.example.newsappcompose.presentation.utils.Dimens.ArticleImageHeight
 
+/**
+ * @property [DetailsScreen] composable for showing details screen.
+ *
+ * @param article
+ * @param navigate
+ * @param event
+ */
 @Composable
 fun DetailsScreen(
     article: Article,

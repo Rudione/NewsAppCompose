@@ -12,6 +12,9 @@ import com.example.newsappcompose.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onEach
 
+/**
+ * @property [NewsRepositoryImpl] class for repository access.
+ */
 class NewsRepositoryImpl(
     private val newsApi: NewsApi,
     private val newsDao: NewsDao

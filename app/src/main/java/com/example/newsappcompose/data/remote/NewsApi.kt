@@ -5,6 +5,9 @@ import com.example.newsappcompose.domain.utils.Constants.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * @property [NewsApi] interface for news api.
+ */
 interface NewsApi {
 
     @GET("everything")

@@ -2,6 +2,10 @@ package com.example.newsappcompose.presentation.utils
 
 import androidx.compose.ui.unit.dp
 
+/**
+ * @property [Dimens] class for dimens.
+ * This class is responsible for holding all the dimens.
+ */
 object Dimens {
     val MediumPadding1 = 24.dp
     val MediumPadding2 = 28.dp

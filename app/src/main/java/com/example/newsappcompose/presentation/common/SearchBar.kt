@@ -31,6 +31,16 @@ import com.example.newsappcompose.R
 import com.example.newsappcompose.presentation.theme.NewsAppComposeTheme
 import com.example.newsappcompose.presentation.utils.Dimens.IconSize
 
+/**
+ * @property [SearchBar] composable for showing search bar.
+ *
+ * @param modifier
+ * @param text
+ * @param readOnly
+ * @param onClick
+ * @param onValueChange
+ * @param onSearch
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchBar(
@@ -101,6 +111,10 @@ fun SearchBar(
     }
 }
 
+/**
+ * @property [searchBarBorder] function for showing search bar border.
+ *
+ */
 fun Modifier.searchBarBorder() = composed {
     if (!isSystemInDarkTheme()) {
         border(

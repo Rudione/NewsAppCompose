@@ -12,6 +12,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * @property [SearchViewModel] class for search view model.
+ * This class is responsible for handling the search view model.
+ * @param newsUseCases
+ * @constructor Create empty Search view model
+ * @see [ViewModel]
+ * @throws [Exception]
+ * @return Unit
+ * @sample com.example.newsappcompose.presentation.screens.search.SearchViewModel
+ */
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val newsUseCases: NewsUseCases

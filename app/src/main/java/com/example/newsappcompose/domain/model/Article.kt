@@ -5,6 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
+/**
+ * @property [Article] class for article.
+ */
 @Parcelize
 @Entity(tableName = "articles", primaryKeys = ["url"])
 data class Article(

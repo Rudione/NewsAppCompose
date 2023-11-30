@@ -30,6 +30,13 @@ import com.example.newsappcompose.presentation.utils.Dimens
 import com.example.newsappcompose.presentation.utils.Dimens.ArticleCardSize
 import com.example.newsappcompose.presentation.utils.Dimens.ExtraSmallPadding
 
+/**
+ * @property [ArticleCard] composable for showing article card.
+ *
+ * @param modifier
+ * @param article
+ * @param onClick
+ */
 @Composable
 fun ArticleCard(
     modifier: Modifier = Modifier,

@@ -22,6 +22,13 @@ import com.example.newsappcompose.R
 import com.example.newsappcompose.presentation.utils.Dimens.ExtraSmallPadding
 import com.example.newsappcompose.presentation.utils.Dimens.IconSize
 
+/**
+ * @property [NewsBottomNavigation] composable for showing bottom navigation.
+ *
+ * @param items
+ * @param selectedItem
+ * @param onItemClick
+ */
 @Composable
 fun NewsBottomNavigation(
     items: List<BottomNavigationItem>,
@@ -60,6 +67,12 @@ fun NewsBottomNavigation(
     }
 }
 
+/**
+ * @property [BottomNavigationItem] data class for bottom navigation item.
+ *
+ * @param icon
+ * @param text
+ */
 data class BottomNavigationItem(
     @DrawableRes val icon: Int,
     val text: String
